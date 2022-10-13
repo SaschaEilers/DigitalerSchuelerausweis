@@ -1,0 +1,10 @@
+{
+    "schueler": {
+      "S_ID": "23456",
+      "Name": "Eilers",
+      "Vorname": "Sascha",
+      "Klasse": "WIT3C",
+      "Geburtsdatum": "21.06.2001",
+      "LichtbildPath": "C:\\Desktop\\EilersSascha"
+    }
+  }
