@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="48" y="40" width="1529" height="801" text="Browser&#xA;https://bbs2leer.de/Schuelerausweis" measuredWidth="1529" measuredHeight="801">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="22" x="563" y="144" measuredWidth="500" measuredHeight="320">
+    <widgets xsi:type="model:Panel" id="2" width="500" height="320" measuredWidth="500" measuredHeight="320"/>
+    <widgets xsi:type="model:Image" id="3" x="10" y="66" width="156" height="223" measuredWidth="156" measuredHeight="223" border="true" src="ressources/bild.png"/>
+    <widgets xsi:type="model:Label" id="4" x="105" text="Schülerausweis" measuredWidth="289" measuredHeight="67">
+      <font size="43px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="5" x="190" y="66" text="Vorname, Nachname:" measuredWidth="130" measuredHeight="25">
+      <font size="13px"/>
+    </widgets>
+    <widgets xsi:type="model:HLine" id="8" x="181" y="127" width="297" measuredWidth="297" measuredHeight="6"/>
+    <widgets xsi:type="model:Label" id="9" x="190" y="86" text="Sascha" measuredWidth="51" measuredHeight="28">
+      <font size="15px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="10" x="190" y="103" text="Eilers" measuredWidth="41" measuredHeight="28">
+      <font size="15px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="11" x="190" y="135" text="Geburtsdatum:" measuredWidth="92" measuredHeight="25">
+      <font size="13px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="12" x="190" y="156" text="21.06.2001" measuredWidth="76" measuredHeight="28">
+      <font size="15px"/>
+    </widgets>
+    <widgets xsi:type="model:HLine" id="13" x="181" y="183" width="297" measuredWidth="297" measuredHeight="6"/>
+    <widgets xsi:type="model:Label" id="14" x="190" y="195" text="Klasse" measuredWidth="43" measuredHeight="25">
+      <font size="13px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="15" x="190" y="216" text="WIT3C" measuredWidth="49" measuredHeight="28">
+      <font size="15px"/>
+    </widgets>
+    <widgets xsi:type="model:HLine" id="16" x="186" y="255" width="55" measuredWidth="55" measuredHeight="6"/>
+    <widgets xsi:type="model:Label" id="17" x="265" y="198" text="Schuljahr / erstellt in:" measuredWidth="127" measuredHeight="25">
+      <font size="13px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="18" x="265" y="219" text="2022" measuredWidth="38" measuredHeight="28">
+      <font size="15px"/>
+    </widgets>
+    <widgets xsi:type="model:HLine" id="19" x="253" y="255" width="225" measuredWidth="225" measuredHeight="6"/>
+    <widgets xsi:type="model:Label" id="20" x="50" y="288" text="Gültig in Verbindung mit einem Personalausweis bis zum" measuredWidth="334" measuredHeight="25">
+      <font size="13px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="21" x="383" y="288" text="01.11.2022" measuredWidth="70" measuredHeight="25">
+      <font size="13px" bold="true"/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Panel" id="23" x="563" y="488" width="500" height="320" measuredWidth="500" measuredHeight="320"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

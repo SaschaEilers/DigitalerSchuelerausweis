@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="48" y="40" width="1529" height="801" text="Browser&#xA;http://portal.bbs2leer.de" measuredWidth="1529" measuredHeight="801">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:VButtonBar" id="3" x="48" y="92" width="105" height="749" text="Stundenplan&#xD;&#xA;Downloads&#xD;&#xA;ILIAS&#xD;&#xA;Office365&#xD;&#xA;Digitaler Schülerausweis&#xD;&#xA;" measuredWidth="105" measuredHeight="749">
+    <font/>
+    <items x="0" y="0" width="105" height="148" text="Stundenplan"/>
+    <items x="0" y="148" width="105" height="147" text="Downloads"/>
+    <items x="0" y="295" width="105" height="147" text="ILIAS"/>
+    <items x="0" y="442" width="105" height="147" text="Office365"/>
+    <items link="QR-Code.screen" x="0" y="589" width="105" height="160" text="Digitaler Schülerausweis"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" id="5" x="623" y="416" width="380" text="Search" measuredWidth="380" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="7" x="713" y="280" measuredWidth="200" measuredHeight="100" src="ressources/BBSLogo_portal.png"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

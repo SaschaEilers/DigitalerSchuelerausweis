@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="48" y="40" width="1529" height="801" text="Browser&#xA;http://portal.bbs2leer.de" measuredWidth="1529" measuredHeight="801">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="2" x="727" y="310" width="171" text="eilesa" measuredWidth="171" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="3" x="727" y="360" width="171" text="*****************" measuredWidth="171" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="4" x="727" y="400" width="171" text="submit" measuredWidth="171" measuredHeight="25" link="BBS2Portal.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="5" x="727" y="288" text="Benutzername:" measuredWidth="85" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="6" x="727" y="338" text="Passwort:" measuredWidth="56" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

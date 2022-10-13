@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="64" y="40" width="1529" height="801" text="Browser&#xA;http://portal.bbs2leer.de" measuredWidth="1529" measuredHeight="801">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:VButtonBar" id="2" x="65" y="92" width="105" height="749" text="Stundenplan&#xD;&#xA;Downloads&#xD;&#xA;ILIAS&#xD;&#xA;Office365&#xD;&#xA;Digitaler Schülerausweis&#xD;&#xA;" measuredWidth="105" measuredHeight="749" selection="4">
+    <font/>
+    <items x="0" y="0" width="105" height="148" text="Stundenplan"/>
+    <items x="0" y="148" width="105" height="147" text="Downloads"/>
+    <items x="0" y="295" width="105" height="147" text="ILIAS"/>
+    <items x="0" y="442" width="105" height="147" text="Office365"/>
+    <items x="0" y="589" width="105" height="160" text="Digitaler Schülerausweis"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="5" x="583" y="136" text="Digitaler Schülerausweis" measuredWidth="460" measuredHeight="67">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:Note" id="6" x="328" y="600" width="161" height="81" text="Einscannen &#xD;&#xA;des QR-Codes&#xD;&#xA;" measuredWidth="161" measuredHeight="81" link="Ausweis.screen">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="7" x="563" y="280" width="500" height="500" measuredWidth="500" measuredHeight="500" src="ressources/qr-code.png"/>
+  <widgets xsi:type="model:Label" id="8" x="583" y="202" text="Sascha, Eilers" measuredWidth="192" measuredHeight="53">
+    <font size="32px"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
