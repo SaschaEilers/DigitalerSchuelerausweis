@@ -1,8 +1,6 @@
 using System.DirectoryServices.Protocols;
 using System.Net;
 using System.Text;
-using Microsoft.Extensions.Options;
-using Schuelerausweis.Constants;
 using Schuelerausweis.Models;
 
 namespace Schuelerausweis.Services;
