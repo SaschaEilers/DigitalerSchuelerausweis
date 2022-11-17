@@ -1,5 +1,3 @@
-
-
 <?php
 
 function ConnectLdap()
@@ -14,49 +12,37 @@ function ConnectLdap()
 
         ldap_set_option($ldapConn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-        $ldapBind = ldap_bind($ldapConn, "cn=user-read-only,dc=yourOrganisation,dc=loc", "user-read-only");
+        $ldapBind = ldap_bind($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", $_POST['pwd']);
 
         if (!$ldapBind) {
-            throw new Exception();
+            throw new Exception("Passwort stimmt nicht überein.");
         }
 
         return $ldapConn;
     } catch (Exception $e) {
-        echo ("Es konnte keine Connection zu LDAP hergestellt werden." . $e);
+        echo ("Der Benutzer konnte nich angemeldet werden." . $e);
         return null;
     }
 }
 
-function GetAnmeldeDaten($ldapConn, $usr, $pwd)
+function GetLdapId($ldapConn)
 {
     try {
+        $ldapSearch = ldap_search($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
 
-        $ldapSearchLogIn = ldap_search($ldapConn, "cn=" . $usr . ",dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
-        $ldapEntryLogIn = ldap_first_entry($ldapConn, $ldapSearchLogIn);
-        $ldapValues = ldap_get_values($ldapConn, $ldapEntryLogIn, "userPassword");
-        if ($pwd == $ldapValues[0])
-        {
-            return;
-        }
-        echo "Passwort stimmt nicht überein.";
+        $ldapEntry = ldap_first_entry($ldapConn, $ldapSearch);
+
+        $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "displayname");
+        return $ldapValues[0];
     } catch (Exception $e) {
-        echo "Benutzer konnte nicht gefunden werden." . $e;
+        echo ("Es konnte keine id geladen werden." . $e);
         return null;
     }
 }
 
 try {
-    $usr = $_POST['usr'];
-    $pwd = $_POST['pwd'];
-
     $ldapConn = ConnectLdap();
-    GetAnmeldeDaten($ldapConn, $usr, $pwd);
-
-    $ldapSearch = ldap_search($ldapConn, "cn=sascha,dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
-    $ldapEntry = ldap_first_entry($ldapConn, $ldapSearch);
-
-    $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "Email");
-    $id = $ldapValues[0];
+    $id = GetLdapId($ldapConn);
 
     echo "<h1>" . $id . "</h1>";
 } catch (Exception $e) {
