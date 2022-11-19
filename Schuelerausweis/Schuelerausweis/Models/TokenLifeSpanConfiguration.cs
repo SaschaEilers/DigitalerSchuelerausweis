@@ -1,6 +1,6 @@
 ﻿namespace Schuelerausweis.Models;
 
-public class TokenLifeSpan
+public class TokenLifeSpanConfiguration
 {
     public int Days { get; set; }
     public int Hours { get; set; }

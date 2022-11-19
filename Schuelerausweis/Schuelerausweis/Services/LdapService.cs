@@ -1,8 +1,8 @@
-using System.Collections;
 using System.DirectoryServices.Protocols;
 using System.Net;
 using System.Text;
 using Microsoft.Extensions.Options;
+using Schuelerausweis.Constants;
 using Schuelerausweis.Models;
 
 namespace Schuelerausweis.Services;
@@ -11,13 +11,16 @@ public class LdapService : ILdapService, IDisposable
 {
     private readonly string _domain;
     private readonly LdapConnection _ldapConnection;
-    public LdapService(IOptions<LdapConfig> configuration)
+    public LdapService(IConfiguration configuration)
     {
-        var serverConfig = configuration.Value.Server;
-        var credentialConfig = configuration.Value.Credentials;
+        var ldapConfiguration = configuration
+            .GetRequiredSection(ConfigurationSections.Ldap)
+            .Get<LdapConfiguration>()!;
+        var serverConfig = ldapConfiguration.Server;
+        var credentialConfig = ldapConfiguration.Credentials;
         var identifier = new LdapDirectoryIdentifier(serverConfig.HostName, serverConfig.Port);
         var networkCredential =
-            new NetworkCredential(string.Join(',', credentialConfig.Username, _domain = credentialConfig.Domain),
+            new NetworkCredential(string.Join(',', credentialConfig.User, _domain = credentialConfig.Domain),
                 credentialConfig.Password);
         _ldapConnection = new LdapConnection(identifier, networkCredential, AuthType.Basic);
         _ldapConnection.SessionOptions.ProtocolVersion = 3;
@@ -27,7 +30,6 @@ public class LdapService : ILdapService, IDisposable
     public IDictionary<string, string> GetAttributesForUser(string user)
     {
         Dictionary<string, string> loadedValues = new();
-
         var searchRequest = new SearchRequest(string.Join(',', user, _domain), "(&(objectClass=inetOrgPerson))",
             SearchScope.Subtree);
         var directoryResponse = _ldapConnection.SendRequest(searchRequest);
