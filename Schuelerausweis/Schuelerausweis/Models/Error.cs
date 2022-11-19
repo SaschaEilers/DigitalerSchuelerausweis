@@ -4,6 +4,6 @@ namespace Schuelerausweis.Models;
 
 public class Error
 {
-    public HttpStatusCode Status { get; set; }
-    public string Description { get; set; }
+    public required HttpStatusCode Status { get; set; }
+    public required string Description { get; set; }
 }

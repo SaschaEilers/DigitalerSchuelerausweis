@@ -2,10 +2,14 @@
 
 namespace Schuelerausweis.Models;
 
-public class TokenData
+public class TokenData : ITokenData
 {
-    [FromQuery(Name = "id")]
-    public string Id { get; set; }
-    [FromQuery(Name = "token")]
-    public Guid Token { get; set; }
+    public required string Id { get; set; }
+    public required DateTime CreationDate { get; set; }
+}
+
+public interface ITokenData
+{
+    public string Id { get; }
+    public DateTime CreationDate { get; }
 }

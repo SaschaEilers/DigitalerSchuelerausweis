@@ -1,14 +1,9 @@
-using System.Collections;
-using System.DirectoryServices;
-using System.DirectoryServices.Protocols;
 using System.Net;
-using System.Text;
-using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Schuelerausweis.Models;
 using Schuelerausweis.Services;
-using SearchScope = System.DirectoryServices.Protocols.SearchScope;
 
 namespace Schuelerausweis.Controllers;
 
@@ -16,55 +11,54 @@ namespace Schuelerausweis.Controllers;
 [Route("api/[controller]")]
 public class UserController : Controller
 {
-    private readonly ILdapService _ldapService;
-    private readonly IValidator<TokenData> _validator;
+    private readonly ILogger<UserController> _logger;
+    private readonly IUserService _userService;
 
-    public UserController(ILdapService ldapService, IValidator<TokenData> validator)
+    public UserController(ILogger<UserController> logger,IUserService userService)
     {
-        _ldapService = ldapService;
-        _validator = validator;
+        _logger = logger;
+        _userService = userService;
     }
     
+    
+    
     [HttpGet]
-    public Results<Ok<User>, BadRequest<Error>, ProblemHttpResult> GetUserData([FromQuery]TokenData data)
+    public async Task<Results<Ok<User>, BadRequest<Error>, ProblemHttpResult>> GetUserData([FromQuery]string token, CancellationToken cancellationToken)
     {
-        var validationresult = _validator.Validate(data);
-        if (!validationresult.IsValid)
+        if (string.IsNullOrWhiteSpace(token))
         {
             return TypedResults.BadRequest(new Error
             {
                 Status = HttpStatusCode.BadRequest,
-                Description = "Invalid request parameter"
+                Description = "Request is missing a Token"
             });
         }
         
-        
-        
-        _ldapService.GetAttributesForUser(data.Id);
-        
         try
         {
-            var now = DateTime.Now.ToBinary();
-            Span<byte> nowBytes = stackalloc byte[16];
-            for (int i = 0; i < nowBytes.Length; i++)
-            {
-                nowBytes[i] = now >>
-            }
-            new Guid(nowBytes);
-            Response.Cookies.Append("Ptoken", );
+            var urlDecodedToken = WebUtility.UrlDecode(token);
+            var decodedToken = WebEncoders.Base64UrlDecode(urlDecodedToken);
+            var userOrError = await _userService.GetUserByTokenAsync(decodedToken, cancellationToken);
 
-            User user = new()
+            if (userOrError is { IsLeft: true, Case: InvalidTokenError error})
             {
-                FirstName = loadedValues["cn"],
-                LastName = loadedValues["sn"],
-                DateOfBirth = DateOnly.Parse(loadedValues["title"]),
-                Class = "WIT3C"
-            };
-        
-            return TypedResults.Ok(user);
+                return TypedResults.BadRequest(new Error
+                {
+                    Status = HttpStatusCode.BadRequest,
+                    Description = "Invalid Token"
+                });
+            }
+
+            if (userOrError is { IsRight: true, Case: User user })
+            {
+                return TypedResults.Ok(user);
+            }
+
+            return TypedResults.Problem("This State should not be reached");
         }
         catch (Exception e)
         {
+            _logger.LogError("Something went wrong trying to resolve the user");
             return TypedResults.Problem(e.Message);
         }
     }
