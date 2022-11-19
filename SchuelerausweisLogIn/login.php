@@ -35,7 +35,7 @@ function GetLdapId($ldapConn)
         $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "displayname");
         return $ldapValues[0];
     } catch (Exception $e) {
-        echo ("Es konnte keine id geladen werden." . $e);
+        echo ("Es konnte keine Id geladen werden." . $e);
         return null;
     }
 }
