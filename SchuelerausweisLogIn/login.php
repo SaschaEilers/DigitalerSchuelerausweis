@@ -44,7 +44,9 @@ try {
     $ldapConn = ConnectLdap();
     $id = GetLdapId($ldapConn);
 
-    echo "<h1>" . $id . "</h1>";
+    include("QR.php");
+    GeneriereQR($id);
+
 } catch (Exception $e) {
     throw new Exception("Error Processing Request" . $e);
 }
