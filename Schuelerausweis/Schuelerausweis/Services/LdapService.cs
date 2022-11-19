@@ -58,5 +58,5 @@ public class LdapService : ILdapService, IDisposable
 
 public interface ILdapService
 {
-    public IDictionary<string, string> GetAttributesForUser(string user);
+    public IDictionary<string, string> Attributes { get; } 
 }
