@@ -23,7 +23,7 @@ public class UserController : Controller
     
     
     [HttpGet]
-    public async Task<Results<Ok<User>, BadRequest<Error>, ProblemHttpResult>> GetUserData([FromQuery]string token, CancellationToken cancellationToken)
+    public async Task<Results<Ok<User>, BadRequest<Error>, ProblemHttpResult>> GetUserData([FromBody]string token, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(token))
         {
@@ -42,6 +42,7 @@ public class UserController : Controller
 
             if (userOrError is { IsLeft: true, Case: InvalidTokenError error})
             {
+                _logger.LogWarning("Token {} had the following issue: {}", token, error.Description);
                 return TypedResults.BadRequest(new Error
                 {
                     Status = HttpStatusCode.BadRequest,
@@ -51,15 +52,17 @@ public class UserController : Controller
 
             if (userOrError is { IsRight: true, Case: User user })
             {
+                _logger.LogInformation("Token {} successfully resolved", token);
                 return TypedResults.Ok(user);
             }
-
+            
+            _logger.LogError("Token {} caused an invalid state", token);
             return TypedResults.Problem("This State should not be reached");
         }
         catch (Exception e)
         {
-            _logger.LogError("Something went wrong trying to resolve the user");
-            return TypedResults.Problem(e.Message);
+            _logger.LogError(e,"Resolving the User for token {} failed due to an exception", token);
+            return TypedResults.Problem("Server could not resolve User");
         }
     }
 }
