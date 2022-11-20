@@ -1,7 +1,7 @@
 <?php
 function EncryptSchueler($text)
 {
-    return openssl_encrypt($text, $_ENV['ENCRYPTION_ALGO'], $_ENV['ENCRYPTION_KEY'], 0, $_ENV['ENCRYPTION_IV']);
+    return openssl_encrypt($text, getenv('ENCRYPTION_ALGO'), getenv('ENCRYPTION_KEY'), 0, getenv('ENCRYPTION_IV'));
 }
 
 function GeneriereQR($id)
