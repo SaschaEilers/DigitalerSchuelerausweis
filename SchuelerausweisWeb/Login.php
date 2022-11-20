@@ -3,7 +3,7 @@
 function ConnectLdap()
 {
     try {
-        $ldapConn = ldap_connect("localhost", 389)
+        $ldapConn = ldap_connect($_ENV['LDAP_SERVER_HOSTNAME'], $_ENV['LDAP_SERVER_PORT'])
             or die("That LDAP-URI was not parseable");
 
         if (!$ldapConn) {
@@ -13,7 +13,7 @@ function ConnectLdap()
 
         ldap_set_option($ldapConn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-        $ldapBind = ldap_bind($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", $_POST['pwd']);
+        $ldapBind = ldap_bind($ldapConn, "cn=" . $_POST['usr'] .',' . $_ENV['LDAP_BASE_DN'], $_POST['pwd']);
 
         if (!$ldapBind) {
             echo "Passwort stimmt nicht überein.";
@@ -30,7 +30,7 @@ function ConnectLdap()
 function GetLdapId($ldapConn)
 {
     try {
-        $ldapSearch = ldap_search($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
+        $ldapSearch = ldap_search($ldapConn, "cn=" . $_POST['usr'] . ',' .  $_ENV['LDAP_BASE_DN'], "(&(objectClass=inetOrgPerson))");
         $ldapEntry = ldap_first_entry($ldapConn, $ldapSearch);
         $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "cn");
         return $ldapValues[0];
