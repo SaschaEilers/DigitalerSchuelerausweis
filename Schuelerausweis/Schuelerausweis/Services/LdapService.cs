@@ -1,6 +1,7 @@
 using System.DirectoryServices.Protocols;
 using System.Net;
 using System.Text;
+using Schuelerausweis.Constants;
 using Schuelerausweis.Models;
 
 namespace Schuelerausweis.Services;
@@ -58,5 +59,5 @@ public class LdapService : ILdapService, IDisposable
 
 public interface ILdapService
 {
-    public IDictionary<string, string> Attributes { get; } 
+    public IDictionary<string, string> GetAttributesForUser(string user);
 }
