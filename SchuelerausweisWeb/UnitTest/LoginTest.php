@@ -32,10 +32,22 @@ final class LoginTest extends TestCase
         //Vorbereitung
         vorbereitung("FalschesTestPasswort")
 
-        // Methodenaufruf COnnectLdap
+        // Methodenaufruf ConnectLdap
         $connection = ConnectLdap();
 
         // Ergebnis
         $this -> assertSame($connection, null)
+    }
+
+    public function testGetLdapId(): void{
+        //Vorbereitung
+        vorbereitung("TestPaswort")
+        $ldapConn = ConnectLdap();
+
+        // Methodenaufruf GetLdapId
+        $ldapValues = GetLdapId($ldapConn)
+
+        //Ergebnis
+        $this -> assertNotSame($ldapValues, null)
     }
 }
