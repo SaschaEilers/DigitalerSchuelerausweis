@@ -15,6 +15,10 @@ FROM build AS publish
 RUN dotnet publish "Schuelerausweis.csproj" -c Release -o /app/publish
 
 FROM base AS final
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libldap-2.4-2 \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Schuelerausweis.dll"]

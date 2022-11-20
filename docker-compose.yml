@@ -4,14 +4,14 @@ services:
     image: osixia/openldap:latest
     container_name: openldap
     hostname: openldap
-    ports: 
+    ports:
       - "389:389"
       - "636:636"
     volumes:
       - ./data/certificates:/container/service/slapd/assets/certs
       - ./data/slapd/database:/var/lib/ldap
       - ./data/slapd/config:/etc/ldap/slapd.d
-    environment: 
+    environment:
       - LDAP_ORGANISATION=yourOrganisation
       - LDAP_DOMAIN=yourOrganisation.loc
       - LDAP_ADMIN_USERNAME=admin
@@ -26,24 +26,52 @@ services:
       - LDAP_READONLY_USER_PASSWORD=user-read-only
     networks:
       - ldapnet
-  
+
   phpldapadmin:
     image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
     hostname: phpldapadmin
-    ports: 
+    ports:
       - "8081:80"
-    environment: 
+    environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
     depends_on:
       - openldap
     networks:
       - ldapnet
-      
-      
+    
+  frontend:
+    build: ./SchuelerausweisWeb
+
+    depends_on:
+      - openldap
+    networks:
+      - ldapnet
+
+  backend:
+    depends_on:
+      - openldap
+    environment:
+      - "Encryption:Key=DigitalerSchülerausweis"
+      - "Encryption:IV=1234567891011112"
+      - "Ldap:Credentials:Domain=dc=yourOrganisation,dc=loc"
+      - "Ldap:Credentials:User=cn=user-read-only"
+      - "Ldap:Credentials:Password=user-read-only"
+      - "Ldap:Server:Hostname=openldap"
+      - "Ldap:Server:Port=389"
+      - "TokenLifeSpan:Days=0"
+      - "TokenLifeSpan:Hours=0"
+      - "TokenLifeSpan:Minutes=3"
+      - "TokenLifeSpan:Seconds"
+    build:
+      context: ./Schuelerausweis
+      dockerfile: ./Schuelerausweis/Dockerfile
+    ports:
+      - 9001:80
+    networks:
+      - ldapnet
+
 networks:
   ldapnet:
     driver: bridge
-      
-  
