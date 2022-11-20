@@ -35,3 +35,10 @@ button:hover {
 .container {
     padding: 16px;
 }
+
+.AusweisBild{
+    width: 100%;
+    border: 5px, solid;
+    border-color: black;
+    border-radius: 40px;
+}

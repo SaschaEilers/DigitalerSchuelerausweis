@@ -26,7 +26,7 @@ function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
     return $vorlage;
 }
 
-function GetDataFromWebApi()
+function GetDataFromWebApi($token)
 {
 
     $url = "http://localhost:12345/api/Values/Get";
@@ -51,7 +51,7 @@ function GetDataFromWebApi()
     return $debug;
 }
 
-$schuelerDaten = GetDataFromWebApi();
+$schuelerDaten = GetDataFromWebApi($_GET['p']);
 if (!$schuelerDaten) {
     echo "Es konnte kein valider Schülerausweis gefunden werden.";
 } else {

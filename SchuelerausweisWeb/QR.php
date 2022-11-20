@@ -15,6 +15,7 @@ function GeneriereQR($id)
     $pass = date("Y-m-d\TH:i:s") . "|cn=" . $id . "|";
     $cryptPass = EncryptSchueler($pass);
     $urlCryptPass = urlencode($cryptPass);
+    $url = $_SERVER["REQUEST_SCHEME"] . "://". $_SERVER["SERVER_NAME"] .":" . $_SERVER["SERVER_PORT"] . "/DigitalerSchuelerausweis.php?t=";
 
-    QRcode::png($urlCryptPass);
+    QRcode::png($url . $urlCryptPass);
 }
