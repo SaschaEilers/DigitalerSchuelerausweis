@@ -20,7 +20,7 @@ function ConnectLdap()
 
         return $ldapConn;
     } catch (Exception $e) {
-        echo ("Der Benutzer konnte nich angemeldet werden." . $e);
+        echo ("Der Benutzer konnte nicht angemeldet werden." . $e);
         return null;
     }
 }
@@ -29,9 +29,7 @@ function GetLdapId($ldapConn)
 {
     try {
         $ldapSearch = ldap_search($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
-
         $ldapEntry = ldap_first_entry($ldapConn, $ldapSearch);
-
         $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "displayname");
         return $ldapValues[0];
     } catch (Exception $e) {
@@ -46,7 +44,6 @@ try {
 
     include("QR.php");
     GeneriereQR($id);
-
 } catch (Exception $e) {
     throw new Exception("Error Processing Request" . $e);
 }

@@ -15,8 +15,6 @@ function GeneriereQR($id)
     $pass = date("Y-m-d\TH:i:s") . "|cn=" . $id . "|";
     $cryptPass = EncryptSchueler($pass);
     $urlCryptPass = urlencode($cryptPass);
-    echo $urlCryptPass;
-    //QRcode::png($urlCryptPass);
-}
 
-GeneriereQR("Sascha");
+    QRcode::png($urlCryptPass);
+}

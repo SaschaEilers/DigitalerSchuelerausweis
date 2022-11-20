@@ -1,5 +1,5 @@
 <?php
-function CreateSchuelerausweis($schuelerDaten)
+function ErstelleSchuelerausweis($schuelerDaten)
 {
     $vorlage = imagecreatefrompng('img/SchuelerausweisVorlage.png');
     $ausweis = AusweisMitDatenFuellen($vorlage, $schuelerDaten);
@@ -26,12 +26,34 @@ function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
     return $vorlage;
 }
 
-$schuelerDaten = array(
-    'Vorname' => "Sascha",
-    'Nachname' => "Eilers",
-    'Klasse' => "WIT3C",
-    'Geburtstag' => "21.06.2001",
-    'BildPfad' => "D:\\temp\\profilfoto\\sascha.png"
-);
+function GetDataFromWebApi()
+{
 
-CreateSchuelerausweis($schuelerDaten);
+    $url = "http://localhost:12345/api/Values/Get";
+
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 4);
+
+    $json = curl_exec($ch);
+
+    $date = new DateTimeImmutable("2001-06-21");
+    $debug = array(
+        'Vorname' => "Sascha",
+        'Nachname' => "Eilers",
+        'Klasse' => "WIT3C",
+        'Geburtstag' => $date->format("d.m.Y"),
+        'BildPfad' => "D:\\temp\\profilfoto\\sascha.png"
+    );
+
+    return $debug;
+}
+
+$schuelerDaten = GetDataFromWebApi();
+if (!$schuelerDaten) {
+    echo "Es konnte kein valider Schülerausweis gefunden werden.";
+} else {
+    ErstelleSchuelerausweis($schuelerDaten);
+}
