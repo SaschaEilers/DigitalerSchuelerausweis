@@ -26,7 +26,7 @@ public class UserService : IUserService
         {
             return new InvalidTokenError
             {
-                Description = $"Lifespan of Token {encryptedToken} was out of bounds"
+                Description = $"Lifespan expired"
             };
         }
         
