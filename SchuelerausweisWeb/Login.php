@@ -32,7 +32,7 @@ function GetLdapId($ldapConn)
     try {
         $ldapSearch = ldap_search($ldapConn, "cn=" . $_POST['usr'] . ",dc=yourOrganisation,dc=loc", "(&(objectClass=inetOrgPerson))");
         $ldapEntry = ldap_first_entry($ldapConn, $ldapSearch);
-        $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "displayname");
+        $ldapValues = ldap_get_values($ldapConn, $ldapEntry, "cn");
         return $ldapValues[0];
     } catch (Exception $e) {
         echo ("Es konnte keine Id geladen werden.");

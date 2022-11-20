@@ -13,14 +13,18 @@ function ErstelleSchuelerausweis($schuelerDaten)
 
 function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
 {
-    imagettftext($vorlage, 20, 0, 340, 200, 0x000000, 'img/Arial.ttf', $schuelerDaten['Vorname']);
-    imagettftext($vorlage, 20, 0, 340, 250, 0x000000, 'img/Arial.ttf', $schuelerDaten['Nachname']);
-    imagettftext($vorlage, 20, 0, 340, 360, 0x000000, 'img/Arial.ttf', $schuelerDaten['Geburtstag']);
-    imagettftext($vorlage, 20, 0, 340, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['Klasse']);
+    $date = new DateTimeImmutable($schuelerDaten['dateOfBirth']);
+
+    imagettftext($vorlage, 20, 0, 340, 200, 0x000000, 'img/Arial.ttf', $schuelerDaten['firstName']);
+    imagettftext($vorlage, 20, 0, 340, 250, 0x000000, 'img/Arial.ttf', $schuelerDaten['lastName']);
+    imagettftext($vorlage, 20, 0, 340, 360, 0x000000, 'img/Arial.ttf', $date->format("d.m.Y"));
+    imagettftext($vorlage, 20, 0, 340, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['class']);
     imagettftext($vorlage, 20, 0, 640, 480, 0x000000, 'img/Arial.ttf', "2020");
 
-    $foto = imagecreatefrompng($schuelerDaten['BildPfad']);
-    $fotoSize = getimagesize($schuelerDaten['BildPfad']);
+    $bildpfadDebug = "D:\\temp\\profilfoto\\luca.png";
+
+    $foto = imagecreatefrompng($bildpfadDebug);
+    $fotoSize = getimagesize($bildpfadDebug);
     imagecopyresized($vorlage, $foto, 50, 170, 0, 0, 250, 320, $fotoSize[0], $fotoSize[1]);
 
     return $vorlage;
@@ -28,32 +32,32 @@ function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
 
 function GetDataFromWebApi($token)
 {
-
-    $url = "http://localhost:12345/api/Values/Get";
-
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_URL, 'http://localhost:5180/api/User');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 4);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "\"" . $token . "\"");
 
-    $json = curl_exec($ch);
+    $headers = array();
+    $headers[] = 'Accept: */*';
+    $headers[] = 'Content-Type: text/json';
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-    $date = new DateTimeImmutable("2001-06-21");
-    $debug = array(
-        'Vorname' => "Sascha",
-        'Nachname' => "Eilers",
-        'Klasse' => "WIT3C",
-        'Geburtstag' => $date->format("d.m.Y"),
-        'BildPfad' => "D:\\temp\\profilfoto\\sascha.png"
-    );
+    $result = curl_exec($ch);
+    if (curl_errno($ch)) {
+        echo 'Error:' . curl_error($ch);
+    }
 
-    return $debug;
+    curl_close($ch);
+
+    return $result;
 }
 
-$schuelerDaten = GetDataFromWebApi($_GET['p']);
+$schuelerDaten = GetDataFromWebApi(urlencode($_GET['t']));
 if (!$schuelerDaten) {
-    echo "Es konnte kein valider Schülerausweis gefunden werden.";
+    echo "<br>Es konnte kein valider Schülerausweis gefunden werden.";
 } else {
-    ErstelleSchuelerausweis($schuelerDaten);
+    ErstelleSchuelerausweis(json_decode($schuelerDaten, true));
 }
