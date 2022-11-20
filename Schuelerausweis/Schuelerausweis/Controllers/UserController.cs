@@ -22,7 +22,7 @@ public class UserController : Controller
     
     
     
-    [HttpGet]
+    [HttpPost]
     public async Task<Results<Ok<User>, BadRequest<Error>, ProblemHttpResult>> GetUserData([FromBody]string token, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(token))

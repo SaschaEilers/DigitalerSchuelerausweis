@@ -1,3 +1,4 @@
+using System.Collections;
 using System.DirectoryServices.Protocols;
 using System.Net;
 using System.Text;
@@ -39,12 +40,13 @@ public class LdapService : ILdapService, IDisposable
 
         foreach (SearchResultEntry responseEntry in searchResponse.Entries)
         {
-            foreach (DirectoryAttribute responseEntryAttribute in responseEntry.Attributes)
+            foreach (DictionaryEntry responseEntryAttribute in responseEntry.Attributes)
             {
-                var bytes = responseEntryAttribute.Cast<byte[]>()
-                                                  .SelectMany(x => x)
-                                                  .ToArray();
-                loadedValues[responseEntryAttribute.Name] = Encoding.Default.GetString(bytes);
+                var attribute = responseEntryAttribute.Value as DirectoryAttribute;
+                var bytes = attribute!.Cast<byte[]>()
+                    .SelectMany(x => x)
+                    .ToArray();
+                loadedValues[attribute!.Name] = Encoding.Default.GetString(bytes);
             }
         }
 
