@@ -41,17 +41,12 @@ services:
     networks:
       - ldapnet
     
-  frontend:
-    build: ./SchuelerausweisWeb
-
-    depends_on:
-      - openldap
-    networks:
-      - ldapnet
-
   backend:
+    container_name: backend
+    hostname: backend
     depends_on:
       - openldap
+
     environment:
       - "Encryption:Key=DigitalerSchülerausweis"
       - "Encryption:IV=1234567891011112"
@@ -67,8 +62,17 @@ services:
     build:
       context: ./Schuelerausweis
       dockerfile: ./Schuelerausweis/Dockerfile
+    networks:
+      - ldapnet
+      
+  frontend:
+    container_name: frontend
+    build: ./SchuelerausweisWeb
     ports:
-      - 9001:80
+      - 9000:80
+
+    depends_on:
+      - backend
     networks:
       - ldapnet
 
