@@ -1,11 +1,7 @@
 <?php
 function EncryptSchueler($text)
 {
-    $algo = "aes-128-cbc";
-    $key = "DigitalerSchülerausweis";
-    $iv = "1234567891011112";
-
-    return openssl_encrypt($text, $algo, $key, 0, $iv);
+    return openssl_encrypt($text, $_ENV['ENCRYPTION_ALGO'], $_ENV['ENCRYPTION_KEY'], 0, $_ENV['ENCRYPTION_IV']);
 }
 
 function GeneriereQR($id)
