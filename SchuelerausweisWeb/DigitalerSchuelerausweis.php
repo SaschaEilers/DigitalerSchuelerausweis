@@ -19,9 +19,9 @@ function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
     imagettftext($vorlage, 20, 0, 340, 250, 0x000000, 'img/Arial.ttf', $schuelerDaten['lastName']);
     imagettftext($vorlage, 20, 0, 340, 360, 0x000000, 'img/Arial.ttf', $date->format("d.m.Y"));
     imagettftext($vorlage, 20, 0, 340, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['class']);
-    imagettftext($vorlage, 20, 0, 640, 480, 0x000000, 'img/Arial.ttf', "2020");
+    imagettftext($vorlage, 20, 0, 640, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['enrollmentYear']);
 
-    $bildpfadDebug = "D:\\temp\\profilfoto\\luca.png";
+    $bildpfadDebug = getenv("IMG_DIR").$schuelerDaten["image"];
 
     $foto = imagecreatefrompng($bildpfadDebug);
     $fotoSize = getimagesize($bildpfadDebug);
