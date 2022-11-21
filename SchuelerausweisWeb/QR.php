@@ -6,7 +6,7 @@ function EncryptSchueler($text)
 
 function GeneriereQR($id)
 {
-    include ".\package\phpqrcode.php";
+    include "./package/phpqrcode.php";
 
     $pass = date("Y-m-d\TH:i:s") . "|cn=" . $id . "|";
     $cryptPass = EncryptSchueler($pass);
