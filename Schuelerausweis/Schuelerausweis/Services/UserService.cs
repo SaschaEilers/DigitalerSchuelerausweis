@@ -1,18 +1,23 @@
 using LanguageExt;
 using LanguageExt.Common;
 using Microsoft.Extensions.Options;
+using Schuelerausweis.Constants;
 using Schuelerausweis.Models;
 
 namespace Schuelerausweis.Services;
 
 public class UserService : IUserService
 {
+    private readonly AttributesConfiguration attributes;
     private readonly ITokenService _tokenService;
     private readonly IEncryptionService _encryptionService;
     private readonly ILdapService _ldapService;
 
-    public UserService(ITokenService tokenService, IEncryptionService encryptionService, ILdapService ldapService)
+    public UserService(IConfiguration configuration, ITokenService tokenService, IEncryptionService encryptionService, ILdapService ldapService)
     {
+        attributes = configuration
+            .GetRequiredSection(ConfigurationSections.Attributes)
+            .Get<AttributesConfiguration>()!;
         _tokenService = tokenService;
         _encryptionService = encryptionService;
         _ldapService = ldapService;
@@ -33,10 +38,12 @@ public class UserService : IUserService
         var attributesForUser = _ldapService.GetAttributesForUser(tokenData.Id);
         return new User
         {
-            FirstName = attributesForUser["cn"],
-            LastName = attributesForUser["sn"],
-            Class = "WIT3C",
-            DateOfBirth = DateOnly.Parse(attributesForUser["title"])
+            FirstName = attributesForUser[attributes.FirstName],
+            LastName = attributesForUser[attributes.LastName],
+            Class = attributesForUser[attributes.Class],
+            DateOfBirth = DateOnly.Parse(attributesForUser[attributes.DateOfBirth]),
+            Image = attributesForUser[attributes.Image],
+            EnrollmentYear = int.Parse(attributesForUser[attributes.EnrollmentYear])
         };
     }
 }

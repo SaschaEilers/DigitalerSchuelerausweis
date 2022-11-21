@@ -56,6 +56,12 @@ services:
       - "TokenLifeSpan:Hours=0"
       - "TokenLifeSpan:Minutes=3"
       - "TokenLifeSpan:Seconds"
+      - "Attributes:FirstName=cn"
+      - "Attributes:LastName=sn"
+      - "Attributes:DateOfBirth=title"
+      - "Attributes:Image=labeledURI"
+      - "Attributes:EnrollmentYear=departmentNumber"
+      - "Attributes:Class=roomNumber"
     build:
       context: ./Schuelerausweis
       dockerfile: ./Schuelerausweis/Dockerfile
@@ -75,6 +81,7 @@ services:
       LDAP_SERVER_PORT: 389
       LDAP_BASE_DN: dc=yourOrganisation,dc=loc
       WEB_API_PATH: http://backend/api/User
+      IMG_DIR: ./img/
     depends_on:
       - backend
     networks:
