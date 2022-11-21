@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schuelerausweis", "Schuelerausweis\Schuelerausweis.csproj", "{43DB8FFE-DA52-4766-A4AC-1C8F6B87AD70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schuelerausweis.Test", "Schuelerausweis.Test\Schuelerausweis.Test.csproj", "{5FF6AF5B-75FB-4154-BADC-0C5FDA13DE22}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{43DB8FFE-DA52-4766-A4AC-1C8F6B87AD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43DB8FFE-DA52-4766-A4AC-1C8F6B87AD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43DB8FFE-DA52-4766-A4AC-1C8F6B87AD70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FF6AF5B-75FB-4154-BADC-0C5FDA13DE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FF6AF5B-75FB-4154-BADC-0C5FDA13DE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FF6AF5B-75FB-4154-BADC-0C5FDA13DE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FF6AF5B-75FB-4154-BADC-0C5FDA13DE22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

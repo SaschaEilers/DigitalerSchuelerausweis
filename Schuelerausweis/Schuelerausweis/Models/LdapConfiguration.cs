@@ -2,6 +2,6 @@
 
 public class LdapConfiguration
 {
-    public LdapCredentialsConfiguration Credentials { get; set; }
-    public LdapServerConfiguration Server { get; set; }
+    public required LdapCredentialsConfiguration Credentials { get; set; }
+    public required LdapServerConfiguration Server { get; set; }
 }
