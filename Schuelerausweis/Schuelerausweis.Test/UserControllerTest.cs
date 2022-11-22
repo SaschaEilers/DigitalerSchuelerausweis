@@ -126,7 +126,8 @@ public class UserControllerTest
             DateOfBirth = new DateOnly(2000, 01, 01),
             Class = "wit3c",
             EnrollmentYear = 2000,
-            Image = "imageName"
+            Image = "imageName",
+            ExpirationDate = DateTime.Now
         };
         
         mockUserService
