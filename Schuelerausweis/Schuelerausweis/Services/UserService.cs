@@ -31,7 +31,7 @@ public class UserService : IUserService
         {
             return new InvalidTokenError
             {
-                Description = $"Lifespan expired"
+                Description = "Lifespan expired"
             };
         }
         

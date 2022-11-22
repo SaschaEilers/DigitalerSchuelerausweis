@@ -24,7 +24,7 @@ public class TokenService : ITokenService
 
     public ITokenData CreateToken(string data)
     {
-        var tokenData = data.Split('|');
+        var tokenData = data.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         return new TokenData
         {
             CreationDate = DateTime.ParseExact(tokenData[0], "s", null),

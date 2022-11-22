@@ -5,9 +5,12 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["Schuelerausweis.sln", "."]
 COPY ["Schuelerausweis/Schuelerausweis.csproj", "Schuelerausweis/"]
-RUN dotnet restore "Schuelerausweis/Schuelerausweis.csproj"
+COPY ["Schuelerausweis.Test/Schuelerausweis.Test.csproj", "Schuelerausweis.Test/"]
+RUN dotnet restore
 COPY . .
+RUN dotnet test -c release
 WORKDIR "/src/Schuelerausweis"
 RUN dotnet build "Schuelerausweis.csproj" -c Release -o /app/build
 

@@ -23,7 +23,7 @@ public sealed class EncryptionService : IEncryptionService, IDisposable
         _encryption.KeySize = 128;
         _encryption.BlockSize = 128;
         _encryption.IV = _encoding.GetBytes(options.IV);
-        _encryption.Key = _encoding.GetBytes(options.Key, 0,15);
+        _encryption.Key = _encoding.GetBytes(options.Key)[..16];
     }
     
     public async Task<string> DecryptAsync(byte[] cypherText, CancellationToken cancellationToken)

@@ -55,7 +55,7 @@ services:
       - "TokenLifeSpan:Days=0"
       - "TokenLifeSpan:Hours=0"
       - "TokenLifeSpan:Minutes=3"
-      - "TokenLifeSpan:Seconds"
+      - "TokenLifeSpan:Seconds=0"
       - "Attributes:FirstName=cn"
       - "Attributes:LastName=sn"
       - "Attributes:DateOfBirth=title"
