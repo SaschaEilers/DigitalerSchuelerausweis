@@ -43,8 +43,7 @@ public class UserService : IUserService
             Class = attributesForUser[attributes.Class],
             DateOfBirth = DateOnly.Parse(attributesForUser[attributes.DateOfBirth]),
             Image = attributesForUser[attributes.Image],
-            EnrollmentYear = int.Parse(attributesForUser[attributes.EnrollmentYear]),
-            ExpirationDate = _tokenService.CreateExpirationDate(tokenData.CreationDate)
+            EnrollmentYear = int.Parse(attributesForUser[attributes.EnrollmentYear])
         };
     }
 }

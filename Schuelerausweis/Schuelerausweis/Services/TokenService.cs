@@ -15,19 +15,11 @@ public class TokenService : ITokenService
 
     public bool IsAlive(DateTime dateTime)
     {
-        var expirationDate = CreateExpirationDate(dateTime);
-        return DateTime.Now < expirationDate;
-    }
-
-    public DateTime CreateExpirationDate(DateTime dateTime)
-    {
         var options = _configuration
             .GetRequiredSection(ConfigurationSections.TokenLifeSpan)
             .Get<TokenLifeSpanConfiguration>()!;
-        var now = DateTime.Now;
-        var pastTime = now - dateTime;
-        var leftOverTime = new TimeSpan(options.Days, options.Hours, options.Minutes, options.Seconds) - pastTime;
-        return now + leftOverTime;
+        var calculatedDateTime = DateTime.Now - new TimeSpan(options.Days, options.Hours, options.Minutes, options.Seconds);
+        return calculatedDateTime < dateTime;
     }
 
     public ITokenData CreateToken(string data)
@@ -44,6 +36,5 @@ public class TokenService : ITokenService
 public interface ITokenService
 {
     public bool IsAlive(DateTime dateTime);
-    public DateTime CreateExpirationDate(DateTime dateTime);
     public ITokenData CreateToken(string token);
 }
