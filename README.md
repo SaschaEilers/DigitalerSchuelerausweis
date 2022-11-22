@@ -10,14 +10,14 @@
    2. Create new entry here
       1. Default
       2. inetOrgPerson
-         1. RDN				cn
-         2. cn					Vorname
-         3. sn					Nachname
-         4. title					Geburtstag (yyyy-MM-dd)
-         5. roomNumber			Klasse
-         6. departmentNumber	Einschulungsjahr
-         7. labeledUri			Bilddatei
-         8. Password				Passwort
+         * RDN				cn
+         * cn					Vorname
+         * sn					Nachname
+         * title					Geburtstag (yyyy-MM-dd)
+         * roomNumber			Klasse
+         * departmentNumber	Einschulungsjahr
+         * labeledUri			Bilddatei
+         * Password				Passwort
 3. Website öffnen
    * IP Adresse des lokalen PCs + Port
    * xxx.xxx.xxx.xxx:9000
