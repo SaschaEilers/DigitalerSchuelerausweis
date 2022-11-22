@@ -21,7 +21,9 @@ FROM base AS final
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libldap-2.4-2 \
+        tzdata \
     && rm -rf /var/lib/apt/lists/*
+ENV TZ="Europe/Berlin"
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Schuelerausweis.dll"]
