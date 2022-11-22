@@ -28,7 +28,8 @@
 --
 + ConnectLdap():Connection
 + GetLdapId($connection:Connection):string
-</panel_attributes>
+
+bg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -44,7 +45,8 @@
 --
 + EncryptSchueler($text:string):string
 - GeneriereQR($id:string):void
-</panel_attributes>
+
+bg=ORANGE</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -73,7 +75,8 @@
 + ErstelleSchuelerausweis($schuelerDaten:array)
 - AusweisMitDatenFuellen($vorlage:image,$schuelerDaten:array):image
 + GetDataFromWebApi($token:string):array
-</panel_attributes>
+
+bg=PINK</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
