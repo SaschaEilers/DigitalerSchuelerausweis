@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <help_text/>
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1505</x>
+      <y>14</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Constants
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1505</x>
+      <y>35</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Controllers
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1505</x>
+      <y>56</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Models
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1505</x>
+      <y>77</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Services
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>175</y>
+      <w>189</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>ConfigurationSections
+--
++ Encryption:string = Encryption
++ TokenLifeSpan:string = TokenLifeSpan
++ Ldap:string = Ldap
+--
+
+
+bg=BLUE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>595</x>
+      <y>70</y>
+      <w>112</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>EncryptionConfiguration
+--
++ Key:string
++ IV:string
+--
++ getKey():string
++ setKey(key:string)
++ getIV():string
++ setIV(iv:string)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>826</y>
+      <w>161</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Error
+--
++ Status:HttpStatusCode
++ Description:string
+--
++ getStatus():HttpStatusCode
++ setStatus(status:HttpStatusCode)
++ getDescription():string
++ setDescription(description:string)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1267</x>
+      <y>196</y>
+      <w>266</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>LdapConfiguration
+--
++ Credentials:LdapCredentialsConfiguration
++ Server:LdapServerConfiguration
+--
++ getCredentials():LdapCredentialsConfiguration
++ setCredentials(credentials:LdapCredentialsConfiguration)
++ getServer():LdapServerConfiguration
++ setServer(server:LdapServerConfiguration)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1043</x>
+      <y>35</y>
+      <w>147</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>LdapCredentialsConfiguration
+--
++ Domain:string
++ User:string
++ Password:string
+--
++ getDomain():string
++ setDomain(domain:string)
++ getUser():string
++ setUser(user:string)
++ getPassword():string
++ setPassword(password:string)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1253</x>
+      <y>35</y>
+      <w>154</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>LdapServerConfiguration
+--
++ HostName:string
++ Port:int
+--
++ getHostName():string
++ setHostName(hostName:string)
++ getPort():int
++ setPort(port:int)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>203</x>
+      <y>217</y>
+      <w>196</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>TokenData
+--
++ Id:string
++ CreationDate:DateTime
+--
++ getId():string
++ setId(id:string)
++ getCreationDate():DateTime
++ setCreationDate(creationDate:DateTime)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>189</x>
+      <y>56</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ITokenData
+--
++ Id:string
++ CreationDate:DateTime
+--
++ getId():string
++ getCreationDate():DateTime
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>189</y>
+      <w>133</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>TokenLifeSpanConfiguration
+--
++ Days:int
++ Hours:int
++ Minutes:int
++ Seconds:int
+--
++ getDays():int
++ setDays(days:int)
++ getHours():int
++ setHours(hours:int)
++ getMinutes():int
++ setMinutes(minutes:int)
++ getSeconds():int
++ setSeconds(seconds:int)
+
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>161</x>
+      <y>581</y>
+      <w>203</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>User
+--
++ FirstName:string
++ LastName:string
++ DateOfBirth:DateTime
++ Class:string
++ Image:string
++ EnrollmentYear:int
+--
++ getFirstName():string
++ setFirstName(firstName:string)
++ getLastName():string
++ setLastName(lastName:string)
++ getDateOfBirth():DateTime
++ setDateOfBirth(dateOfBirth:DateTime)
++ getClass():string
++ setClass(class:string)
++ getImage():string
++ setImage(image:string)
++ getEnrollmentYear():int
++ setEnrollmentYear(enrollmentYear:string)
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>287</x>
+      <y>826</y>
+      <w>329</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>UserController
+--
+- _logger:ILogger&lt;UserController&gt;
+- _userService:IUserService
+--
++ UserController():UserController
++ GetUserData(token:string,cancellationToken:CancellationToken)
+   :Task&lt;Results&lt;Ok&lt;User&gt;,BadRequest&lt;Error&gt;,ProblemHttpResult&gt; &gt; 
+
+
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>644</x>
+      <y>364</y>
+      <w>329</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>EncryptionService
+--
+- _encryption:Aes
+- _encoding:Encoding
+--
++ EncryptionService():EncryptionService
++ DecryptAsync(cypherText:byte[],cancellationToken:CancellationToken)
+   :Task&lt;string&gt;
++ Dispose():void
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>644</x>
+      <y>490</y>
+      <w>329</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>IEncryptionService
+--
+--
++ DecryptAsync(cypherText:byte[],cancellationToken:CancellationToken)
+   :Task&lt;string&gt;
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1169</x>
+      <y>371</y>
+      <w>280</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>LdapService
+--
+- _domain:string
+- _ldapConnection:LdapConnection
+--
++ LdapService():LdapService
++ GetAttributesForUser(user:string):IDictionary&lt;string,string&gt; 
++ Dispose():void
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1169</x>
+      <y>490</y>
+      <w>280</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>ILdapService
+--
+--
++ GetAttributesForUser(user:string):IDictionary&lt;string,string&gt; 
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>301</x>
+      <y>385</y>
+      <w>182</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>TokenService
+--
+- _configuration:IConfiguration
+--
++ TokenService():TokenService
++ IsAlive(dateTime:DateTime):bool
++ CreateToken(data:string):ITokenData
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>301</x>
+      <y>490</y>
+      <w>182</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>ITokenService
+--
+--
++ IsAlive(dateTime:DateTime):bool
++ CreateToken(data:string):ITokenData
+
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>707</y>
+      <w>385</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>UserService
+--
+- _tokenService:ITokenService
+- _encryptionService:IEncryptionService
+- _ldapService:ILdapService
+--
++ UserService():UserService
++ GetUserByTokenAsync(encryptedToken:byte[],cancellationToken:CancellationToken)
+   :Task&lt;Either&lt;InvalidTokenError,User&gt; &gt; 
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>840</y>
+      <w>385</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>IUserService
+--
+--
++ GetUserByTokenAsync(encryptedToken:byte[],cancellationToken:CancellationToken)
+   :Task&lt;Either&lt;InvalidTokenError,User&gt; &gt; 
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>791</y>
+      <w>161</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>InvalidTokenError
+--
++ Description:string
+--
++ getDescription:string
++ setDescription(description:string)
+bg=RED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1106</x>
+      <y>154</y>
+      <w>175</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1358</x>
+      <y>119</y>
+      <w>21</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>959</x>
+      <y>798</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>826</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;30.0;100.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>791</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;30.0;180.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>448</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>259</x>
+      <y>119</y>
+      <w>21</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1302</x>
+      <y>448</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>798</x>
+      <y>448</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1099</x>
+      <y>413</y>
+      <w>84</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>966</x>
+      <y>413</y>
+      <w>98</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>420</y>
+      <w>322</w>
+      <h>301</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;280.0;440.0;280.0;440.0;410.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>154</y>
+      <w>21</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>441</x>
+      <y>231</y>
+      <w>371</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;70.0;510.0;70.0;510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>917</x>
+      <y>231</y>
+      <w>315</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>430.0;200.0;430.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>854</x>
+      <y>231</y>
+      <w>21</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>784</y>
+      <w>175</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>182</x>
+      <y>854</y>
+      <w>119</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1393</x>
+      <y>280</y>
+      <w>21</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>14</x>
+      <y>14</y>
+      <w>1547</w>
+      <h>924</h>
+    </coordinates>
+    <panel_attributes>Web Api</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>322</x>
+      <y>301</y>
+      <w>21</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>343</y>
+      <w>231</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>310.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>357</x>
+      <y>784</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;60.0;140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>357</x>
+      <y>749</y>
+      <w>413</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>570.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
