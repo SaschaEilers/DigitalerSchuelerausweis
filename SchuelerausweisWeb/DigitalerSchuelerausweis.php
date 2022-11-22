@@ -14,14 +14,12 @@ function ErstelleSchuelerausweis($schuelerDaten)
 function AusweisMitDatenFuellen($vorlage, $schuelerDaten)
 {
     $date = new DateTimeImmutable($schuelerDaten['dateOfBirth']);
-    $gueltigkeit = new DateTimeImmutable($schuelerDaten['expirationDate']);
-    
+
     imagettftext($vorlage, 20, 0, 340, 200, 0x000000, 'img/Arial.ttf', $schuelerDaten['firstName']);
     imagettftext($vorlage, 20, 0, 340, 250, 0x000000, 'img/Arial.ttf', $schuelerDaten['lastName']);
     imagettftext($vorlage, 20, 0, 340, 360, 0x000000, 'img/Arial.ttf', $date->format("d.m.Y"));
     imagettftext($vorlage, 20, 0, 340, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['class']);
     imagettftext($vorlage, 20, 0, 640, 480, 0x000000, 'img/Arial.ttf', $schuelerDaten['enrollmentYear']);
-    imagettftext($vorlage, 15, 0, 50, 520, 0x000000, 'img/Arial.ttf', "Gueltig bis: \n" . $gueltigkeit->format("d.m.Y H:i:s"));
 
     $bildpfadDebug = getenv("IMG_DIR").$schuelerDaten["image"];
 
