@@ -40,11 +40,7 @@ In der [Docker Compose yaml](docker-compose.yml) können verschiedene Variablen 
 
 ## Projektdurchführung
 
-### Planungsphase
-
-Zuerst wurde das Projekt geplant, wie man was umsetzen kann.
-
-#### UML-Diagramme
+### UML-Diagramme
 
 Zur Planung des Projekts wurde ein Anwendungsfalldiagramm erstellt:
 
@@ -57,13 +53,15 @@ Außerdem wurde für die verfeinerte Planung des Web Services und der Web API je
 
 Die UML-Diagramme wurden während der Projektdurchführung aktualisiert und auf den neuesten Stand gebracht.
 
-#### Oberfläche
+### Oberfläche
 
 Um auch die einzelnen Oberflächen, sowie den Übergang zwischen diesen Oberflächen besser zu planen, wurden sogenannte Wireframes erstellt:
 
 * [Schritt 1 - Log In](Dokumente/Wireframe/1_LogIn.pdf)
 * [Schritt 2 - Log In Fenster](Dokumente/Wireframe/2_QR.pdf)
 * [Schritt 3 - Ausweis](Dokumente/Wireframe/3_Ausweis.pdf)
+
+---
 
 ### Teamrollen
 
