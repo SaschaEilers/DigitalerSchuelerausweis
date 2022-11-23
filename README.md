@@ -40,6 +40,10 @@ In der [Docker Compose yaml](docker-compose.yml) können verschiedene Variablen 
 
 ## Projektdurchführung
 
+### Aufgabenzuteilung
+
+Die Aufgaben wurden vor Projektbeginn unter dem TEam aufgeteilt und zum Schluss in mehreren gemeinsamen BEsprechungen zusammen besprochen und zusammengefügt.
+
 ### UML-Diagramme
 
 Zur Planung des Projekts wurde ein Anwendungsfalldiagramm erstellt:
@@ -61,7 +65,7 @@ Um auch die einzelnen Oberflächen, sowie den Übergang zwischen diesen Oberflä
 * [Schritt 2 - Log In Fenster](Dokumente/Wireframe/2_QR.pdf)
 * [Schritt 3 - Ausweis](Dokumente/Wireframe/3_Ausweis.pdf)
 
----
+## Ressourcen
 
 ### Teamrollen
 
@@ -69,6 +73,7 @@ Um auch die einzelnen Oberflächen, sowie den Übergang zwischen diesen Oberflä
   * Projektorganisation
   * Wireframes für die Oberfläche
   * Web Service
+  * Klassendiagramm
 * Obed Kooijmann
   * Web API
   * Web API Tests
@@ -80,7 +85,7 @@ Um auch die einzelnen Oberflächen, sowie den Übergang zwischen diesen Oberflä
   * Anwendungsfalldiagramm
   * Klassendiagramm
 
-### Verwendete Ressourcen
+### Verwendete Software
 
 * GitHub
 * Visual Studio Code
