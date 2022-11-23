@@ -28,5 +28,5 @@
 
 * [X] Diagramme aktualisieren (Gruppe)
 * [X] Externe Dateien in Projekt ziehen (Gruppe)
-* [ ] Präsenatation + Skript (Gruppe)
-* [ ] ReadMe Datei aktualisieren (Gruppe)
+* [X] Präsenatation + Skript (Gruppe)
+* [X] ReadMe Datei aktualisieren (Gruppe)
