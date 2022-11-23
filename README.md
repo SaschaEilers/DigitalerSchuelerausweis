@@ -42,18 +42,20 @@ In der [Docker Compose yaml](docker-compose.yml) können verschiedene Variablen 
 
 ### Aufgabenzuteilung
 
-Die Aufgaben wurden vor Projektbeginn unter dem TEam aufgeteilt und zum Schluss in mehreren gemeinsamen BEsprechungen zusammen besprochen und zusammengefügt.
+Die Aufgaben wurden vor Projektbeginn unter dem Team aufgeteilt und zum Schluss in mehreren gemeinsamen Besprechungen zusammen besprochen und zusammengefügt:
+
+* [Aufgabenverteilung](TODO.md "TODO Liste, die die Augabenverteilung im Team aufzeigt")
 
 ### UML-Diagramme
 
 Zur Planung des Projekts wurde ein Anwendungsfalldiagramm erstellt:
 
-* [Use Case Diagramm](Dokumente/Diagramme/UseCase.pdf)
+* [Use Case Diagramm](Dokumente/Diagramme/UseCase.pdf "Anwendungfalldiagramm, für die Planung des Projekts")
 
 Außerdem wurde für die verfeinerte Planung des Web Services und der Web API jeweils ein Klassendiagramm erstellt, um so die Verbindungen zwischen den unterschiedlichen Klassen und Objekten aufzuzeigen:
 
-* [Klassendiagramm - Web Service](Dokumente/Diagramme/Klassendiagramm_WebService.pdf)
-* [Klassendiagramm - Web API](Dokumente/Diagramme/Klassendiagramm_WebApi.pdf)
+* [Klassendiagramm - Web Service](Dokumente/Diagramme/Klassendiagramm_WebService.pdf "Planung der Klassen des Web Services")
+* [Klassendiagramm - Web API](Dokumente/Diagramme/Klassendiagramm_WebApi.pdf "Planung der Klassen für die Web API")
 
 Die UML-Diagramme wurden während der Projektdurchführung aktualisiert und auf den neuesten Stand gebracht.
 
@@ -61,9 +63,9 @@ Die UML-Diagramme wurden während der Projektdurchführung aktualisiert und auf 
 
 Um auch die einzelnen Oberflächen, sowie den Übergang zwischen diesen Oberflächen besser zu planen, wurden sogenannte Wireframes erstellt:
 
-* [Schritt 1 - Log In](Dokumente/Wireframe/1_LogIn.pdf)
-* [Schritt 2 - Log In Fenster](Dokumente/Wireframe/2_QR.pdf)
-* [Schritt 3 - Ausweis](Dokumente/Wireframe/3_Ausweis.pdf)
+* [Schritt 1 - Log In](Dokumente/Wireframe/1_LogIn.pdf "1. Schitt - Login Fenster")
+* [Schritt 2 - QR Code](Dokumente/Wireframe/2_QR.pdf "2. Schritt - QR Code Anzeige für den Schüler")
+* [Schritt 3 - Ausweis](Dokumente/Wireframe/3_Ausweis.pdf "3.Schritt - Angezeigter Schülerausweis")
 
 ## Ressourcen
 
