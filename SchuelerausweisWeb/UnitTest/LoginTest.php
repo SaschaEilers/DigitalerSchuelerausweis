@@ -10,44 +10,44 @@ final class LoginTest extends TestCase
     }
 
     public function vorbereitung($pwd): array{
-        setUp();
-        $_POST array(
-            'usr' => "Test"
+        $this->setUp();
+        $_POST = array(
+            'usr' => "Test",
             'pwd' => $pwd
-        )
+        );
     }
 
     public function testConnectLdapTrue(): void{
         // Vorbereitung
-        vorbereitung("TestPasswort");
+        $this->vorbereitung("TestPasswort");
 
         // Methodenaufruf ConnectLdap
         $connection = ConnectLdap();
 
         // Ergebnis
-        $this -> assertNotSame($connection, null)
+        $this -> assertNotSame($connection, null);
     }
 
     public function testConnectLdapFalse(): void{
         //Vorbereitung
-        vorbereitung("FalschesTestPasswort")
+        $this->vorbereitung("FalschesTestPasswort");
 
         // Methodenaufruf ConnectLdap
         $connection = ConnectLdap();
 
         // Ergebnis
-        $this -> assertSame($connection, null)
+        $this -> assertSame($connection, null);
     }
 
     public function testGetLdapId(): void{
         //Vorbereitung
-        vorbereitung("TestPaswort")
+        $this->vorbereitung("TestPaswort");
         $ldapConn = ConnectLdap();
 
         // Methodenaufruf GetLdapId
-        $ldapValues = GetLdapId($ldapConn)
+        $ldapValues = GetLdapId($ldapConn);
 
         //Ergebnis
-        $this -> assertNotSame($ldapValues, null)
+        $this -> assertNotSame($ldapValues, null);
     }
 }
